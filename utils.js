@@ -1,7 +1,10 @@
-export function filterByCities(users, cities) {
-  if (!cities || cities.length === 0) return users;
-  const set = new Set(cities);
-  return users.filter(u => set.has(u.address?.city));
+select.addEventListener('change', render);
+reloadBtn.addEventListener('click', load);
+load();
+
+export function filterByCity(users, city) {
+  if (!city) return users;
+  return users.filter(u => u.address?.city === city);
 }
 
 export function sortByName(users) {
