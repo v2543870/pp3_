@@ -29,7 +29,7 @@ function render() {
 }
 
 function fillCities() {
-  const prev = new Set(getSelectedCities()); // зберігаємо вибір при перезавантаженні
+  const prev = new Set(getSelectedCities()); 
   select.length = 0;
   for (const city of getCities(allUsers)) {
     select.add(new Option(city, city, false, prev.has(city)));
