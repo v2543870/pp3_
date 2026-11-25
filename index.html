@@ -4,14 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Користувачі</title>
+  <style>
+    #cityDropdown { display: inline-block; position: relative; }
+    #cityDropdown summary {
+      border: 1px solid #767676; border-radius: 3px; padding: 2px 8px;
+      cursor: pointer; background: #fff; list-style: none;
+    }
+    #cityFilter {
+      position: absolute; z-index: 10; background: #fff;
+      border: 1px solid #767676; padding: 4px 8px; min-width: 100%;
+      white-space: nowrap;
+    }
+    #cityFilter label { display: block; }
+  </style>
 </head>
 <body>
   <h1>Користувачі</h1>
 
-  <label for="cityFilter">Міста (Ctrl/Cmd+клік для вибору кількох):</label><br>
-  <select id="cityFilter" multiple size="6"></select>
-  <button id="clear" type="button">Скинути фільтр</button>
-  <button id="reload" type="button">Перезавантажити</button>
+  Місто:
+  <details id="cityDropdown">
+    <summary id="cityLabel">Усі міста</summary>
+    <div id="cityFilter"></div>
+  </details>
+  <button id="reload" type="button">Оновити</button>
 
   <p id="status"></p>
   <p id="error" style="color: red;"></p>
