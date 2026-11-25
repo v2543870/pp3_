@@ -1,7 +1,13 @@
 import { fetchUsers } from './api.js';
 import { filterByCities, sortByName, getCities } from './utils.js';
 
+const list = document.getElementById('userList');
+const select = document.getElementById('cityFilter');
+const status = document.getElementById('status');
+const errorBox = document.getElementById('error');
+const reloadBtn = document.getElementById('reload');
 
+let allUsers = [];
 
 function getSelectedCities() {
   return [...select.selectedOptions].map(o => o.value);
@@ -28,3 +34,22 @@ function fillCities() {
     select.add(new Option(city, city, false, prev.has(city)));
   }
 }
+
+async function load() {
+  errorBox.textContent = '';
+  status.textContent = 'Завантаження...';
+  try {
+    allUsers = await fetchUsers();
+    fillCities();
+    render();
+  } catch (err) {
+    list.innerHTML = '';
+    status.textContent = '';
+    errorBox.textContent = err.message;
+    console.error(err);
+  }
+}
+
+select.addEventListener('change', render);
+reloadBtn.addEventListener('click', load);
+load();
