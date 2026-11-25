@@ -1,7 +1,3 @@
-select.addEventListener('change', render);
-reloadBtn.addEventListener('click', load);
-load();
-
 export function filterByCity(users, city) {
   if (!city) return users;
   return users.filter(u => u.address?.city === city);
