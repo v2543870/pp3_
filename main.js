@@ -44,3 +44,7 @@ async function load() {
     console.error(err);
   }
 }
+
+select.addEventListener('change', render);
+reloadBtn.addEventListener('click', load);
+load();
