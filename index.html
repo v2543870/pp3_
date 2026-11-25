@@ -2,25 +2,20 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Лабораторна 3: модулі та JSON</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
-    select, button { padding: .4rem .8rem; font-size: 1rem; }
-    li { margin: .4rem 0; }
-    small { color: #666; }
-    #error { color: #b00020; background: #fdecea; padding: .6rem; border-radius: 6px; margin-top: 1rem; }
-    #error:empty { display: none; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Користувачі</title>
 </head>
 <body>
-  <h1>Користувачі</h1>
-  <label>Місто:
-    <select id="cityFilter"><option value="">Усі міста</option></select>
-  </label>
-  <button id="reload">Оновити</button>
+  <h1>Список користувачів</h1>
+
+  <label for="cityFilter">Міста (Ctrl/Cmd+клік для вибору кількох):</label><br>
+  <select id="cityFilter" multiple size="6"></select>
+  <button id="clear" type="button">Скинути фільтр</button>
+  <button id="reload" type="button">Перезавантажити</button>
+
   <p id="status"></p>
-  <div id="error"></div>
+  <p id="error" style="color: red;"></p>
+
   <ul id="userList"></ul>
 
   <script type="module" src="main.js"></script>
